@@ -1,0 +1,112 @@
+1) What is SQL?
+SQL stands for the Structured Query Language. SQL is a standard query language used for maintaining the relational database and 
+perform many different operations of data manipulation on the data. SQL initially was invented in 1970. It is a database language used for database
+creation, deletion, fetching rows and modifying rows, etc. sometimes it is pronounced as 'sequel.'
+
+2) When SQL appeared?
+It appeared in 1974. SQL is one of the often used languages for maintaining the relational database. SQL. In 1986 SQL become the standard of American 
+National Standards Institute (ANSI) and ISO(International Organization for Standardization) in 1987.
+
+3) What are the usages of SQL?
+SQL is responsible for maintaining the relational data and the data structures present in the database.
+To execute queries against a database
+To retrieve data from a database
+To inserts records in a database
+To updates records in a database
+To delete records from a database
+To create new databases
+To create new tables in a database
+To create views in a database
+To perform complex operations on the database.
+4) Does SQL support programming?
+SQL refers to the Standard Query Language, which is not actually the programming language. SQL doesn't have a loop, Conditional statement, logical operations,
+it can not be used for anything other than data manipulation. It is used like commanding (Query) language to access databases. The primary purpose of SQL is to retrieve,
+manipulate, update and perform complex operations like joins on the data present in the database.
+
+5) What are the subsets of SQL?
+There is three significant subset of the SQL:
+
+Data definition language (DDL):DDL is used to define the data structure it consists of the commands like CREATE, ALTER, DROP, etc.
+Data manipulation language (DML):DML is used to manipulate already existing data in the database. The commands in this category are SELECT, UPDATE, INSERT, etc.
+Data control language (DCL):DCL is used to control access to data in the database and includes commands such as GRANT, REVOKE.
+
+ 
+6) What is a Data Definition Language?
+Data definition language (DDL) is the subset of the database which defines the data structure of the database in the initial stage when the database is 
+about to be created. It consists of the following commands: CREATE, ALTER and DELETE database objects such as schema, tables, view, sequence, etc.
+
+7) What is a Data Manipulation Language?
+Data manipulation language makes the user able to retrieve and manipulate data. It is used to perform the following operations.
+
+Insert data into database through INSERT command.
+Retrieve data from the database through SELECT command.
+Update data in the database through UPDATE command.
+Delete data from the database through DELETE command.
+8) What is Data Control Language?
+Data control language allows you to control access to the database. DCL is the only subset of the database which decides that what part of the database
+should be accessed by which user at what point of time. It includes two commands GRANT and REVOKE.
+
+GRANT: to grant the specific user to perform a particular task
+
+REVOKE: to cancel previously denied or granted permissions.
+
+9) What are tables and fields in the database?
+A table is a set of organized data. It has rows and columns. Rows here refers to the tuples which represent the simple data item and columns are the 
+attribute of the data items present in particular row. Columns can categorize as vertical, and Rows are horizontal.
+
+A table contains a specified number of the column called fields but can have any number of rows which is known as the record. So, the columns in the 
+table of the database are known as the fields and they represent the attribute or characteristics of the entity in the record.
+
+10) What is a primary key?
+A primary key is a field or the combination of fields which uniquely specify a row. The Primary key is a special kind of unique key. Primary key values 
+cannot be NULL. For example, the Social Security Number can be treated as the primary key for any individual.
+
+11) What is a foreign key?
+A foreign key is specified as a key which is related to the primary key of another table. A relationship needs to be created between two tables by
+referencing foreign key with the primary key of another table. Foreign key acts like a cross-reference between tables as it refers to the primary key of other table and the primary key-foreign key relationship is a very crucial relationship as it maintains the ACID properties of database sometimes.
+
+12) What is a unique key?
+Unique key constraint uniquely identifies each record in the database. This key provides uniqueness for the column or set of columns.
+
+The Unique key cannot accept a duplicate value.
+
+The unique key can accept only on Null value.
+
+13) What is the difference between primary key and unique key?
+Primary key and unique key both are the essential constraints of the SQL, but there is a small difference between them
+
+Primary key carries unique value but the field of the primary key cannot be Null on the other hand unique key also carry unique
+value but it can have a single Null value field.
+
+14) What is a Database?
+A Database is an organized form of data. The database is the electronic system which makes data access, data manipulation, data retrieval, 
+data storing and data management very easy and structured. Almost every organization uses the database for storing the data due to its easily 
+accessible and high operational ease. The database provides perfect access to data and lets us perform required tasks.
+
+The Database is also called a structured form of data. Due to this structured format, you can access data very easily.
+
+15) What is DBMS?
+DBMS stands for Database Management System. This is a program which is used to control them. It is like a File Manager that manages data in a database 
+rather than saving it in file systems.
+
+Database management system is an interface between the database and the user. It makes the data retrieval, data access easier.
+
+Database management system is a software which provides us the power to perform operations such as creation, maintenance and use of a data of the database using 
+a simple query in almost no time.
+
+Without the database management system, it would be far more difficult for the user to access the data of the database.
+
+16) What are the different types of database management systems?
+There are four types of database:
+
+Hierarchical databases (DBMS)
+Relational databases (RDBMS)
+Network databases (IDMS)
+Object-oriented databases
+RDBMS is one of the most often used databases due to its easy accessibility and supports regarding complex queries.
+
+17) What is RDBMS?
+RDBMS stands for Relational Database Management System. It is a database management system based on a relational model. 
+RDBMS stores the data into the collection of tables and links those table using the relational operators easily whenever required. 
+It facilitates you to manipulate the data stored in the tables by using relational operators. Examples of the relational database management system
+are Microsoft Access, MySQL, SQLServer, Oracle database, etc.
