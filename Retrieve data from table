@@ -1,0 +1,44 @@
+1. Write a SQL statement to display all the information of all salesmen. 
+Sample table: salesman
+
+salesman_id |    name    |   city   | commission 
+-------------+------------+----------+------------
+        5001 | James Hoog | New York |       0.15
+        5002 | Nail Knite | Paris    |       0.13
+        5005 | Pit Alex   | London   |       0.11
+        5006 | Mc Lyon    | Paris    |       0.14
+        5007 | Paul Adam  | Rome     |       0.13
+        5003 | Lauson Hen | San Jose |       0.12
+        
+        Ans:
+        select * from salesman
+        note-* means all
+        
+        2nd Ans:
+        select  salesman_id, name ,city ,commission  from  salesman
+        
+        
+        
+        
+2. Write a SQL statement to display a string "This is SQL Exercise, Practice and Solution".  
+SELECT 'This is SQL Exercise, Practice and Solution';
+Note: You can use literal string (enclosed in single or double quotation mark) just like we use a column name in the SELECT statement. 
+If you use the literal string with a column then it will be displayed in every row of the query results.
+3.Write a query to display three numbers in three columns.
+SELECT 5, 10, 15;//15
+4.Write a query to display sum of two numbers 10 and 15.
+SELECT 10 + 15;//25
+
+5.5. Write a query to display the result of an arithmetic expression.
+SELECT 10 + 15 - 5 * 2;
+6. Write a SQL statement to display specific columns like name and commission for all the salesmen.
+salesman_id |    name    |   city   | commission 
+-------------+------------+----------+------------
+        5001 | James Hoog | New York |       0.15
+        5002 | Nail Knite | Paris    |       0.13
+        5005 | Pit Alex   | London   |       0.11
+        5006 | Mc Lyon    | Paris    |       0.14
+        5007 | Paul Adam  | Rome     |       0.13
+        5003 | Lauson Hen | San Jose |       0.12
+        
+        Select  name ,commission from  salesman;
