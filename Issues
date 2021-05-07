@@ -1,2 +1,4 @@
+
+
 Select * from ruby.vendor_profiles as v where v.vendor_id = '13923' AND v.key='pid_moq' ;
 update  ruby.vendor_profiles  as v   SET v.value ='100' where v.vendor_id='13923' AND v.key='pid_moq';
