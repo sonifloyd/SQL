@@ -1,0 +1,53 @@
+Explanation: A transaction is a group of statements to perform single or multiple tasks in a database.
+Each transaction must happen two things in SQL:
+
+Either all modification is successful when the transaction is committed.
+Or, all modifications are undone when the transaction is rollback.
+
+
+An equijoin is a join in which the equal comparison operator is used to match the keys of both tables. 
+In contrast, outer join is a join where rows in one table that do not have a matching row in another table are 
+selected with NULL values 
+for the unknown columns.
+
+
+Quest- the trigger is a set of SQL statements that resides in system memory with unique names 
+and is executed automatically when a database server event occurs.
+
+Quest-
+Referential integrity specify a relation between two tables. Each table must have a primary key. 
+It is also called subset dependencies because the set of foreign
+key values in table1 of table2 must be a subset of the set of primary key values in table2.
+
+Quest-
+A privilege allows users to perform a set of activities on a particular database object.
+Privileges are divided into two categories:
+
+System Privileges: This indicates that the user has the ability to CREATE, ALTER, or "DROP" database components.
+Object Privileges: This enables the user to EXECUTE, SELECT, INSERT, or DELETE data from database objects with privileges.
+
+
+10) In the data type TIME(p), what does p stands for?
+The SQL TIME data type represents a day's time using a 24-hour clock. The p indicates the number of digits for
+the fractional part of the seconds. Its value ranges from 0 to 7.
+If we do not specify the p, it will be 7 by default. Hence option (C) is the correct answer.
+
+11.9) Which of the below sequential statements cannot be used in a function?
+A function can use any type of sequential statements, such as an IF, CASE, LOOP, NEXT, EXIT, or NULL statement.
+However, it has one exception: it does not allow to work with WAIT statement because 
+it cannot be used inside a function. The WAIT statement is used to schedule system work.
+
+12.A transaction has a statement to begin and end both. It starts when one of the following events takes 
+place CREATE, COMMIT, ROLLBACK, etc.
+
+7.Whenever a database is modified, the system executes a statement called _________.
+
+Function
+Trigger
+Package
+Protocol
+
+A trigger is a set of SQL queries that reside in a system catalog. It is a special type of stored procedure 
+that is invoked automatically in response to an event. Hence, 
+option (B) is correct because the trigger is a statement that the system executes whenever a database is modified.
+
