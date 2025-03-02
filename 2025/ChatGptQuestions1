@@ -1,0 +1,201 @@
+What is the difference between Primary Key and Unique Key?
+
+Primary Key	Unique Key
+It uniquely identifies each row in the table.	It also ensures uniqueness of each row but allows one null value.
+Only one Primary Key is allowed in a table.	Multiple Unique Keys can be present in a table.
+It cannot have NULL values.	It can have one NULL value.
+Automatically creates Clustered Index.	Automatically creates Non-Clustered Index.
+Used to enforce Entity Integrity.	Used to enforce Uniqueness Constraint.
+
+CREATE TABLE Employee (
+   ID INT PRIMARY KEY,
+   Name VARCHAR(50)
+);
+``` | Syntax:  
+```sql
+CREATE TABLE Employee (
+   ID INT UNIQUE,
+   Name VARCHAR(50)
+);
+
+
+Question-2 How will you find the second highest salary from the Employee table?
+
+SELECT MAX(salary) 
+FROM Employee 
+WHERE salary < (SELECT MAX(salary) FROM Employee);
+
+
+Q-How to fetch duplicate records from a table?
+
+SELECT name, COUNT(*)
+FROM Employee
+GROUP BY name
+HAVING COUNT(*) > 1;
+
+Q-
+✅ Difference between WHERE and HAVING Clause in SQL
+WHERE Clause	HAVING Clause
+Used to filter individual rows before grouping.	Used to filter groups of rows after the GROUP BY clause.
+Cannot be used with aggregate functions like SUM(), COUNT().	Can be used with aggregate functions like SUM(), COUNT().
+Applied before grouping in the query execution.	Applied after grouping in the query execution.
+
+SELECT * 
+FROM Employee
+WHERE salary > 50000;
+``` | Example:  
+```sql
+SELECT department, COUNT(*)
+FROM Employee
+GROUP BY department
+HAVING COUNT(*) > 5;
+``` |
+| Faster execution because it filters rows first. | Slower execution because it filters aggregated data. |
+
+---
+
+### 🎯 Simple Trick to Remember:
+👉 **WHERE = Filters Rows**  
+👉 **HAVING = Filters Groups**
+
+---
+
+### 🔥 Interview Tip:
+If the interviewer asks:  
+✅ When to use WHERE and HAVING together?
+Answer:  
+Use **WHERE** to filter rows first, then apply **GROUP BY**, and finally use **HAVING** to filter grouped results.
+
+---
+
+Q-Write a query to display the first 3 highest salaries from an Employee table.
+
+SELECT DISTINCT salary 
+FROM Employee 
+ORDER BY salary DESC
+LIMIT 3;
+
+Q- ✅ How to Join Two Tables Without Using JOIN Keyword in SQL?
+You can join two tables without using the JOIN keyword by using the WHERE clause.
+
+SELECT Employee.emp_name, Department.dept_name
+FROM Employee, Department
+WHERE Employee.dept_id = Department.dept_id;
+
+Write a query to get employees whose name starts with 'A' and ends with 'T'.
+SELECT *  
+FROM Employee 
+WHERE name LIKE 'A%T';
+
+✅ Difference between INNER JOIN, LEFT JOIN, and RIGHT JOIN in SQL
+
+INNER JOIN	Returns only the matching rows from both tables.	Shows common data between two tables.	Only matching rows in both tables.
+LEFT JOIN	Returns all rows from the left table and matching rows from the right table. If no match is found, NULL is returned for the right table.	All records from the left table + matching rows from the right table.	Matching + Non-matching rows from the left table.
+RIGHT JOIN	Returns all rows from the right table and matching rows from the left table. If no match is found, NULL is returned for the left table.	All records from the right table + matching rows from the left table.	Matching + Non-matching rows from the right table.
+
+INNER JOIN	Alice - HR
+Bob - IT
+LEFT JOIN	Alice - HR
+Bob - IT
+John - NULL
+RIGHT JOIN	Alice - HR
+Bob - IT
+NULL - Sales
+
+✅ Difference between RANK(), DENSE_RANK(), and ROW_NUMBER() in SQL
+These three functions are Window Functions used to assign a ranking number to each row in the result set.
+
+Purpose of Each Function:
+Function	Purpose	How It Works	Gaps in Ranking?
+ROW_NUMBER()	Assigns a unique sequential number to each row	Even if two rows have the same value, they get different numbers	❌ No Gaps
+RANK()	Assigns a rank to each row based on a column value	If two rows have the same value, they get the same rank, and the next rank will be skipped	✅ Gaps in Rank
+DENSE_RANK()	Assigns a rank without skipping numbers	If two rows have the same value, they get the same rank, and the next rank will be the immediate next number	❌ No Gaps
+
+Employee Table:
+
+emp_id	emp_name	salary
+101	Alice	50000
+102	Bob	40000
+103	John	50000
+104	Mark	30000
+
+Query Using RANK(), DENSE_RANK(), and ROW_NUMBER()
+
+SELECT emp_name, salary,
+       RANK() OVER (ORDER BY salary DESC) AS Rank,
+       DENSE_RANK() OVER (ORDER BY salary DESC) AS DenseRank,
+       ROW_NUMBER() OVER (ORDER BY salary DESC) AS RowNumber
+FROM Employee;
+
+Output
+emp_name	salary	RANK	DENSE_RANK	ROW_NUMBER
+Sara	7000	1	1	1
+Bob	6000	2	2	2
+John	6000	2	2	3
+Alice	5000	4	3	4
+
+How will you find the Nth Highest Salary?
+SELECT DISTINCT salary
+FROM Employee e1
+WHERE N-1 = (SELECT COUNT(DISTINCT salary) FROM Employee e2 WHERE e2.salary > e1.salary);
+
+4. How Many Customers Ordered More Than 3 Times in the Last Month?
+
+SELECT customer_id, COUNT(order_id) AS OrderCount
+FROM Orders
+WHERE order_date >= DATEADD(MONTH, -1, GETDATE())
+GROUP BY customer_id
+HAVING COUNT(order_id) > 3;
+
+5. Display Product Names That Have Never Been Sold
+SELECT p.product_name
+FROM Products p
+LEFT JOIN Orders o ON p.product_id = o.product_id
+WHERE o.order_id IS NULL;
+
+
+6. How to Calculate the Total Sales of Each Product Category?
+SELECT c.category_name, SUM(o.quantity * p.price) AS TotalSales
+FROM Products p
+JOIN Categories c ON p.category_id = c.category_id
+JOIN Orders o ON p.product_id = o.product_id
+GROUP BY c.category_name;
+
+7. Top 3 Best-Selling Products
+SELECT product_id, SUM(quantity) AS TotalQuantity
+FROM Orders
+GROUP BY product_id
+ORDER BY TotalQuantity DESC
+LIMIT 3;
+
+8. How Will You Optimize a Query with Millions of Records?
+Use Indexing on frequently searched columns.
+Use LIMIT or OFFSET for pagination.
+Avoid **SELECT ***, select only required columns.
+Use JOINs efficiently.
+Use CTEs and Temp Tables
+
+9. Difference Between TRUNCATE and DELETE
+TRUNCATE	DELETE
+Removes all records	Removes specific records
+Cannot be rolled back	Can be rolled back
+Faster	Slower
+No WHERE condition	Supports WHERE
+
+10. How to Implement Pagination in SQL?
+
+SELECT emp_name, salary
+FROM Employee
+ORDER BY emp_id
+LIMIT 10 OFFSET 20;
+
+11. How to Find Duplicate Records Without Using GROUP BY?
+
+SELECT emp_name, COUNT(*) AS Count
+FROM Employee e1
+WHERE EXISTS (
+    SELECT 1 FROM Employee e2
+    WHERE e1.emp_name = e2.emp_name
+    AND e1.emp_id <> e2.emp_id
+);
+
